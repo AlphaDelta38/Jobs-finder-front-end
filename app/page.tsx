@@ -1,8 +1,15 @@
+'use client';
+
+import React from 'react';
+import {useRouter} from 'next/navigation';
+import { useEffect } from 'react';
 
 export default function Home() {
-  return (
-    <div>
+  const router = useRouter();
 
-    </div>
-  );
+  useEffect(() => {
+      router.push('/jobs');
+  }, []);
+
+  return (<div></div>);
 }
