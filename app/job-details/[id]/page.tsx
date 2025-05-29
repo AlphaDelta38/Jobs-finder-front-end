@@ -8,8 +8,8 @@ interface PageProps {
     };
 }
 
-const page = ({ params }: PageProps) => {
+const Page = ({ params }: PageProps) => {
     return (<JobDetails id={params.id}/>);
 };
 
-export default page;
+export default Page;
