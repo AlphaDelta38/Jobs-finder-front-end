@@ -7,11 +7,17 @@ import fetcher from '@/lib/fetcher';
 import { useParams } from 'next/navigation';
 import Loader from '@/components/Loader';
 
-const JobDetails: React.FC<JobDetailsProps> = () => {
+interface PageProps {
+    params: {
+        id: string;
+    };
+}
+
+const JobDetails= ({ params }: PageProps) => {
     const [job, setJob] = useState<JobDetailsProps | null>(null);
 
-    const params = useParams();
-    const jobId = params.id;
+    const paramsURLAttribute = useParams();
+    const jobId = paramsURLAttribute.id;
 
     const {
         data,
