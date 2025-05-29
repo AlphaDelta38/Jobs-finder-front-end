@@ -9,11 +9,11 @@ function Header() {
     const { user } = useAuth();
 
     return (
-        <header className='flex w-full h-[60px] px-4'>
+        <header className='flex w-full h-[60px] px-4 max-[500px]:px-0 mb-4'>
             <div className='flex w-full max-w-[1440px] mx-auto justify-between items-center'>
-                <div className='flex h-full items-center justify-items-center px-6'>
+                <div className='flex h-full items-center justify-items-center px-6 max-[500px]:px-2 align-middle'>
                     <Link href=''>
-                        <h1 className='text-2xl font-bold text-black cursor-pointer'>Job Finder</h1>
+                        <h1 className='text-2xl font-bold text-black cursor-pointer max-[500px]:text-xl'>Job Finder</h1>
                     </Link>
                 </div>
                 <div className='flex w-[70%] justify-end'>
