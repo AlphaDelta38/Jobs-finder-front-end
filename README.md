@@ -35,56 +35,24 @@ Express.js for backend
 
 MongoDB with Mongoose for database management
 
-🧱 Project Structure
-bash
-Копировать
-Редактировать
-.
-├── app/                         # Next.js App Router pages
-│   ├── api/                     # API routes (Next.js handlers)
-│   │   ├── jobs/
-│   │   ├── job-details/
-│   │   └── auth/
-│   ├── auth/                    # Frontend pages: login, profile creation
-│   ├── jobs/                    # Jobs listing and recommendations
-│   ├── liked/                   # Liked jobs page
-│   └── profile/                 # User profile page
-│
-├── components/                 # Reusable UI components
-│   ├── AuthUI/
-│   └── Header/
-│
-├── constants/                  # Constants (e.g. auth messages, static texts)
-│   └── auth.constants.ts
-│
-├── contexts/                   # React Context Providers
-│   └── AuthProvider.tsx
-│
-├── formik-schemes/            # Yup validation schemas for Formik
-│   └── auth-validation.schemes.ts
-│
-├── lib/                        # Utility libraries
-│   ├── auth.ts                 # Auth logic (e.g. login/register)
-│   ├── axios.ts                # Axios instance with interceptors
-│   └── fetcher.ts              # SWR fetcher wrapper
-│
-├── public/                     # Public assets
-│   ├── gray-heart.png
-│   └── red-heart.png
-│
-├── types/                      # TypeScript types
-│   ├── auth-formik-types.ts
-│   └── jobs.types.ts
-│
-└── jobs/                       # Job-related UI components
-├── JobCard/
-├── PagBtn/
-├── Loader/
-└── RecommendJobs/
-📦 Backend (Express.js)
-A simple Express app is used for user registration and login with email/password.
-It connects to a MongoDB cluster and provides REST API endpoints.
-Deployment: Can be hosted on Render using a free plan.
+The project is structured into several main directories. The app folder contains all the pages, built using the Next.js App Router. Inside app, the api folder contains server-side routes: jobs is used to fetch job listings, job-details fetches specific job details by ID, and auth handles authentication-related routes. The auth directory includes the login and create-profile pages. The jobs directory contains the main page where users can search for jobs and see recommendations. The liked folder includes the page for displaying liked jobs, and profile includes the user profile page.
+
+The components directory holds reusable UI elements such as AuthUI and Header, along with their subcomponents.
+
+The jobs folder contains components related to job functionality, including JobCard for displaying individual job posts, PagBtn for pagination controls, Loader for loading states, and RecommendJobs for recommended listings based on user profile data.
+
+The constants folder stores static values such as predefined messages. The contexts directory contains the AuthProvider, which manages and provides global authentication state using React Context.
+
+The lib folder includes utility functions and logic, such as auth.ts for authentication handling, axios.ts for configuring the Axios client, and fetcher.ts for use with SWR hooks.
+
+The types folder contains all custom TypeScript definitions, organized by feature like auth and jobs.
+
+The formik-schemes directory includes Yup validation schemas for working with Formik forms.
+
+The public folder stores static files like images and icons, such as heart icons used for the like feature.
+
+There is also an Express.js backend application created for handling user authentication using email and password. It connects to a free MongoDB Atlas cluster and exposes REST API endpoints. This backend can be deployed using Render.
+
 
 📝 Notes
 All forms use Formik and Yup for seamless validation.
