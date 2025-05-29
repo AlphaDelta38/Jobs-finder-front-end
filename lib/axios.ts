@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const userAPI = axios.create({
-    baseURL: 'http://localhost:8080',
+    baseURL: 'https://jobs-finder-back-end.onrender.com',
 });
 
 userAPI.interceptors.request.use((config) => {
