@@ -1,36 +1,99 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Job Search App
+A full-featured job search application with authentication, job liking functionality, user profile creation, and job recommendations.
 
-## Getting Started
+🔗 Live API
+This project uses the free JSearch API
+⚠️ Note: Limited to 200 requests/month — suitable for 2-3 days of usage.
 
-First, run the development server:
+🚀 Functional Features
+🔍 Search Jobs: Users can search for jobs by title. Results are displayed as a list of job cards.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+📄 Job Details: Each job has a detail page with full information. Route: /job-details/:id
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+❤️ Liked Jobs: Users can like jobs. Liked jobs are saved in localStorage and shown on the /liked page.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+❌ Unlike: Users can remove jobs from the liked list.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+👤 User Profile: Users can create a simple profile (name, desired job, about me) stored in localStorage. Route: /create-profile
 
-## Learn More
+🤖 Job Recommendations: On the /jobs page, users receive recommended jobs based on their profile. If no profile exists, a search input is shown.
 
-To learn more about Next.js, take a look at the following resources:
+🔐 Authentication Backend: A simple Express.js backend handles user auth (email + password), using MongoDB via Mongoose. Can be deployed to Render (free tier).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+🛠 Technologies Used
+Next.js 14 with TypeScript
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Tailwind CSS
 
-## Deploy on Vercel
+Formik for form management
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Yup for validation
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Axios with SWR for data fetching
+
+Express.js for backend
+
+MongoDB with Mongoose for database management
+
+🧱 Project Structure
+bash
+Копировать
+Редактировать
+.
+├── app/                         # Next.js App Router pages
+│   ├── api/                     # API routes (Next.js handlers)
+│   │   ├── jobs/
+│   │   ├── job-details/
+│   │   └── auth/
+│   ├── auth/                    # Frontend pages: login, profile creation
+│   ├── jobs/                    # Jobs listing and recommendations
+│   ├── liked/                   # Liked jobs page
+│   └── profile/                 # User profile page
+│
+├── components/                 # Reusable UI components
+│   ├── AuthUI/
+│   └── Header/
+│
+├── constants/                  # Constants (e.g. auth messages, static texts)
+│   └── auth.constants.ts
+│
+├── contexts/                   # React Context Providers
+│   └── AuthProvider.tsx
+│
+├── formik-schemes/            # Yup validation schemas for Formik
+│   └── auth-validation.schemes.ts
+│
+├── lib/                        # Utility libraries
+│   ├── auth.ts                 # Auth logic (e.g. login/register)
+│   ├── axios.ts                # Axios instance with interceptors
+│   └── fetcher.ts              # SWR fetcher wrapper
+│
+├── public/                     # Public assets
+│   ├── gray-heart.png
+│   └── red-heart.png
+│
+├── types/                      # TypeScript types
+│   ├── auth-formik-types.ts
+│   └── jobs.types.ts
+│
+└── jobs/                       # Job-related UI components
+├── JobCard/
+├── PagBtn/
+├── Loader/
+└── RecommendJobs/
+📦 Backend (Express.js)
+A simple Express app is used for user registration and login with email/password.
+It connects to a MongoDB cluster and provides REST API endpoints.
+Deployment: Can be hosted on Render using a free plan.
+
+📝 Notes
+All forms use Formik and Yup for seamless validation.
+
+localStorage is used for storing the user profile and liked jobs (no server DB).
+
+Recommended jobs are based on profile data (title, keywords).
+
+Clean UI with minimal design using Tailwind — focused on readability and structure.
+
+📄 License
+This project is open-source and free to use.
