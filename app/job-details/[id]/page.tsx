@@ -8,8 +8,12 @@ interface PageProps {
     };
 }
 
-const Page = ({ params }: PageProps) => {
-    return (<JobDetails id={params.id}/>);
+type Params = { id: string }
+
+const Page = ({ params }: { params: Promise<Params> }) => {
+    const { id } = React.use(params)
+
+    return (<JobDetails id={id}/>);
 };
 
 export default Page;
