@@ -18,7 +18,7 @@ function Header() {
                 </div>
                 <div className='flex w-[70%] justify-end'>
                     <nav className='max-w-[360px] h-full flex items-center'>
-                        <ul className='flex w-full items-center justify-between list-none gap-4'>
+                        <ul className='flex w-full items-center justify-between list-none gap-2 max-[500px]:px-2'>
                             <Link className='text-base text-black font-medium hover:opacity-75' href={'/jobs'}>
                                 Jobs
                             </Link>
